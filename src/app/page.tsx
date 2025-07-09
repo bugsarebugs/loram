@@ -4,7 +4,6 @@ import axios from 'axios';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { FaStar } from "react-icons/fa";
-import Footer from '@/components/footer';
 
 export default function Home() {
   const router = useRouter();

@@ -1,7 +1,6 @@
 import axios from 'axios';
 import Link from 'next/link';
 import Image from 'next/image';
-import Modal from '@/components/Modal';
 import MovieClient from './MovieClient';
 
 export default async function MovieDetail({ params }: { params: { id: string } }) {

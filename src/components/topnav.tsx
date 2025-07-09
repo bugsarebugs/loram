@@ -2,7 +2,7 @@
 import Image from "next/image"
 import Link from "next/link";
 import { FaSearch} from "react-icons/fa";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 const navz= [
     {
