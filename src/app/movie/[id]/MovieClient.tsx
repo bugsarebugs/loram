@@ -18,7 +18,7 @@ export interface Torrent {
   date_uploaded_unix: number;
 }
 
-export default function MovieClient({ movie }) {
+export default function MovieClient({ movie }:{ movie : any}) {
   const [showModal, setShowModal] = useState(false);
 const [copied, setCopied] = useState<string | null>(null);
 
