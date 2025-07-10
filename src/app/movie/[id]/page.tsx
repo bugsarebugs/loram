@@ -3,7 +3,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import MovieClient from './MovieClient';
 
-type Params = Promise<{ id: string }>
+type Params = { 
+  params: {
+    id: string ;
+}}
 
 export default async function MovieDetail({ params }:{ params: Params }) {
   const res = await axios.get(
