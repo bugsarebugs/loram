@@ -31,7 +31,7 @@ const [copied, setCopied] = useState<string | null>(null);
         <Modal onClose={() => setShowModal(false)} >
           <h2 className="text-white font-bold mb-1 text-2xl ">Select Quality</h2>
           <ul className="space-y-3 flex items-center self-center align-middle justify-center ">
-            {movie.torrents?.map((torrent: any, index: number) => (
+            {movie.torrents?.map((torrent, index: number) => (
               <li key={index} className='p-10 m-5 first:border-r-2 border-blue-500 text-white '>
                 <div className="">
                     <h1 className='uppercase text-2xl font-bold '>{torrent.type}</h1>
