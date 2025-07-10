@@ -5,10 +5,12 @@ import MovieClient from './MovieClient';
 
 
 export default async function MovieDetail({ params }) {
+  const {id} = await params;
   const res = await axios.get(
-    `https://yts.mx/api/v2/movie_details.json?movie_id=${params.id}`
+    `https://yts.mx/api/v2/movie_details.json?movie_id=${id}`
   );
   const movie = res.data.data.movie;
+
 
   return (
     <div className="p-6 max-w-3xl mx-auto">
