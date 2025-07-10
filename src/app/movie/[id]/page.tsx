@@ -9,7 +9,7 @@ interface MoviePageProps{
   };
 }
 
-export default async function MovieDetail({ params }: MoviePageProps ) {
+export default async function MovieDetail({ params, }: { params: {id: string};} ) {
   const res = await axios.get(
     `https://yts.mx/api/v2/movie_details.json?movie_id=${params.id}`
   );
