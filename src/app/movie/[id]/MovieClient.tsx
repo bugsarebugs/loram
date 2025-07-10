@@ -17,8 +17,19 @@ export interface Torrent {
   date_uploaded: string;
   date_uploaded_unix: number;
 }
+interface Movie {
+  id: number;
+  title: string;
+  // add other movie fields you expect here, or use `any` as fallback
+  // For example:
+  year: number;
+  rating: number;
+  torrents: Torrent[];
+  // ...
+}
 
-export default function MovieClient({ movie }:{ movie : any}) {
+
+export default function MovieClient({ movie }:{ movie : Movie}) {
   const [showModal, setShowModal] = useState(false);
 const [copied, setCopied] = useState<string | null>(null);
 
