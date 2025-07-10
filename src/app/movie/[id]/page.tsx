@@ -3,11 +3,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import MovieClient from './MovieClient';
 
-interface MoviePageProps{
-  params: {
-    id: string;
-  };
-}
 
 export default async function MovieDetail({ params, }: { params: {id: string};} ) {
   const res = await axios.get(
