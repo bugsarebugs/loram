@@ -1,7 +1,7 @@
 // in TopNav.tsx
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { FaSearch } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";

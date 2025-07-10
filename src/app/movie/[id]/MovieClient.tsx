@@ -5,7 +5,7 @@ import Modal from '@/components/Modal';
 import Link from 'next/link';
 import { FaCopy, FaArrowDown} from "react-icons/fa"
 
-export default function MovieClient({ movie }: { movie: any }) {
+export default function MovieClient({ movie }) {
   const [showModal, setShowModal] = useState(false);
 const [copied, setCopied] = useState<string | null>(null);
 

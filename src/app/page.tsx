@@ -32,13 +32,37 @@ export default function HomePage() {
     fetchMovies();
   }, [query, page]);
 
+  const Loading = () => {
+  const letters = ['L', 'O', 'R', 'A', 'M'];
+  const colors = [
+    'text-blue-950',
+    'text-orange-500',
+    'text-blue-950',
+    'text-orange-500',
+    'text-blue-950',
+  ];
+
+  return (
+    <div className="flex items-center justify-center h-screen bg-white dark:bg-black">
+      {letters.map((letter, index) => (
+        <span
+          key={index}
+          className={`text-6xl font-extrabold ${colors[index]} inline-block animate-pop`}
+          style={{
+            animationDelay: `${index * 0.2}s`,
+          }}
+        >
+          {letter}
+        </span>
+      ))}
+    </div>
+    );
+  };
   return (
     <div className="p-6">
-      {loading ? (
-        <p>Loading...</p>
-      ) : movies.length > 0 ? (
+      {loading ? <Loading />: movies.length > 0 ? (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {movies.map((movie: any) => (
+          {movies.map((movie) => (
             <Link href={`/movie/${movie.id}`} key={movie.id}>
               <div className="border rounded overflow-hidden shadow hover:shadow-lg cursor-pointer relative">
                 <Image
