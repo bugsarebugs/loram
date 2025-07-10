@@ -18,7 +18,7 @@ export interface Torrent {
   date_uploaded_unix: number;
 }
 interface Movie {
-  id: number;
+  id: string;
   title: string;
   // add other movie fields you expect here, or use `any` as fallback
   // For example:
