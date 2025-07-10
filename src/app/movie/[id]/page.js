@@ -3,12 +3,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import MovieClient from './MovieClient';
 
-type Params = { 
-  params: {
-    id: string ;
-}}
 
-export default async function MovieDetail({ params }:{ params: Params }) {
+export default async function MovieDetail({ params }) {
   const res = await axios.get(
     `https://yts.mx/api/v2/movie_details.json?movie_id=${params.id}`
   );
