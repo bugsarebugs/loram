@@ -31,32 +31,46 @@ const [copied, setCopied] = useState(null);
       {showModal && (
         <Modal onClose={() => setShowModal(false)} >
           <h2 className="text-white font-bold mb-1 text-2xl ">Select Quality</h2>
-          <ul className="space-y-3 flex items-center self-center align-middle justify-center ">
-            {movie.torrents?.map((torrent, index) => (
-              <li key={index} className='p-10 m-5 first:border-r-2 border-blue-500 text-white '>
-                <div className="">
-                    <h1 className='uppercase text-2xl font-bold '>{torrent.type}</h1>
-                    <p>{torrent.quality} </p>
-                    <p className='mb-5'>{torrent.size}</p>
-                    <Link
-                  href={torrent.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white p-4 hover:bg-blue-200 hover:text-gray-600 bg-blue-500 rounded-2xl  " 
-                >
+                  <ul className="space-y-3 flex items-center justify-center">
+          {movie.torrents?.map((torrent, index) => {
+            const showRightBorder = movie.torrents.length > 1 && index === 0;
+          
+            return (
+              <li
+                key={index}
+                className={`p-10 m-5 text-white ${
+                  showRightBorder ? 'border-r-2 border-blue-500' : ''
+                }`}
+              >
+                <div>
+                  <h1 className="uppercase text-2xl font-bold">{torrent.type}</h1>
+                  <p>{torrent.quality}</p>
+                  <p className="mb-5">{torrent.size}</p>
+              
+                  <Link
+                    href={torrent.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white p-4 hover:bg-blue-200 hover:text-gray-600 bg-blue-500 rounded-2xl"
+                  >
                     Download
-                </Link>
-                <p className='flex p-2 mt-5 justify-center align-middle self-center items-center hover:translate-y-2'>Copy link <FaArrowDown/></p>
-                <button
-                      onClick={() => handleCopy(torrent.url)}
-                      className="  p-2 text-white text-xs rounded-full hover:bg-gray-700"
-                    >
-                      {copied === torrent.url ? 'Copied!' : <FaCopy/>}
-                </button>
+                  </Link>
+              
+                  <p className="flex p-2 mt-5 justify-center items-center hover:translate-y-2">
+                    Copy link <FaArrowDown />
+                  </p>
+              
+                  <button
+                    onClick={() => handleCopy(torrent.url)}
+                    className="p-2 text-white text-xs rounded-full hover:bg-gray-700"
+                  >
+                    {copied === torrent.url ? 'Copied!' : <FaCopy />}
+                  </button>
                 </div>
               </li>
-            ))}
-          </ul>
+            );
+          })}
+        </ul>
         </Modal>
       )}
     </>

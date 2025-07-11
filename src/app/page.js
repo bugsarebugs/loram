@@ -7,7 +7,7 @@ import { FaStar } from "react-icons/fa";
 export const dynamic = "force-dynamic"; // Optional: enable dynamic SSR
 
 export default async function HomePage({ searchParams }) {
-  const query = searchParams?.query || "";
+  const query = await searchParams?.query || "";
   const page = parseInt(searchParams?.page || "1");
 
   let movies = [];

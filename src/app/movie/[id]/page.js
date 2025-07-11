@@ -10,8 +10,8 @@ export default async function MovieDetail({ params }) {
     `https://yts.mx/api/v2/movie_details.json?movie_id=${id}`
   );
   const movie = res.data.data.movie;
-  const imageUrl = movie.large_cover_image || movie.background_image_original || movie.background_image || movie.medium_cover_image || movie.small_cover_image || null;
-
+  const imageUrl = movie.large_cover_image || movie.background_image_original || movie.background_image || movie.medium_cover_image || movie.small_cover_image || "/default.jpeg";
+  const alttext = movie.title || movie.description_full || "a movie";
 
   return (
     <div className="p-6 max-w-3xl mx-auto">
@@ -23,7 +23,7 @@ export default async function MovieDetail({ params }) {
 
       <Image
         src={imageUrl}
-        alt={movie.title}
+        alt={alttext}
         width={400}
         height={600}
         className="w-full max-w-md mb-4 rounded shadow"
@@ -32,11 +32,16 @@ export default async function MovieDetail({ params }) {
       <p className="text-gray-700 mb-2">
         <strong>Year:</strong> {movie.year}
       </p>
+      {/* Client side part — show modal, interactivity */}
 
       <p className="text-gray-700 mb-4">{movie.description_full}</p>
-
-      {/* Client side part — show modal, interactivity */}
-      <MovieClient movie={movie} />
+      {movie.title ? (
+        <MovieClient movie={movie} />
+    ) : (
+      <p className="text-red-500 font-semibold mb-4">
+          Oops! The link to download is not yet available, sorry.
+      </p>
+      )}    
     </div>
   );
 }

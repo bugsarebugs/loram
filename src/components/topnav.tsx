@@ -31,7 +31,7 @@ export default function TopNav() {
   };
 
   return (
-    <nav className="flex flex-row justify-center bg-white dark:bg-blue-950 items-center gap-4 p-4">
+    <nav className="flex flex-row justify-between bg-white dark:bg-blue-950 items-center gap-4 p-4">
       <div>
         <Link href="/"><Image src="/LOGO.png" width={150} height={50}  className="hover:w-40 hover:h-20" alt="logo"/></Link>
       </div>
@@ -46,6 +46,7 @@ export default function TopNav() {
       />
       <span className="absolute left-5 top-3"><FaSearch /></span>
     </div>   
+    <span className=""><Link href="/howto">How to Download?</Link></span>
       
     </nav>
   );
