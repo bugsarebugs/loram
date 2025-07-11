@@ -1,5 +1,7 @@
 // in TopNav.tsx
 "use client";
+
+export const dynamic = 'force-dynamic'; // ✅ Add this line
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState} from "react";
 import { FaSearch } from "react-icons/fa";
