@@ -11,11 +11,11 @@ export default function Modal({ onClose, children }) {
   return (
     <div
       onClick={onClose}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(100,100,100,0.5)] text-center"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(100,100,100,0.5)] text-center "
     >
       <div
         onClick={e => e.stopPropagation()}
-        className="bg-blue-950 rounded-lg shadow-lg p-6 w-full max-w-md relative"
+        className="bg-blue-950 rounded-lg shadow-lg p-6 w-full min-w-md mx-140 relative"
       >
         <button
           onClick={onClose}

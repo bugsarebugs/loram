@@ -33,7 +33,7 @@ const [copied, setCopied] = useState(null);
           <h2 className="text-white font-bold mb-1 text-2xl ">Select Quality</h2>
                   <ul className="space-y-3 flex items-center justify-center">
           {movie.torrents?.map((torrent, index) => {
-            const showRightBorder = movie.torrents.length > 1 && index === 0;
+            const showRightBorder = movie.torrents.length > 1 && index != movie.torrents.length-1;
           
             return (
               <li

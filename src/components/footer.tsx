@@ -9,7 +9,7 @@ export default function Footer(){
             <li className=""><Link href="https://wa.me/+255613204190"><FaWhatsappSquare className="size-8  fill-green-300 hover:size-9"/></Link></li>
             <li><Link href="https://www.instagram.com/_.c.h.a.r.m.s/"><FaInstagramSquare className="size-8 fill-pink-400 hover:size-9"  /></Link></li>
         </ul>
-        <div className="flex mx-2">
+        <div className="flex mx-2 sm:flex-col lg:flex-row flex-col">
             Donate <FaDonate className="size-8  outline-green-600 hover:size-9"/> +255679121032
         </div>
     </div>
