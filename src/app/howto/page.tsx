@@ -1,5 +1,5 @@
 import { FaCopy } from "react-icons/fa"
-export default function(){
+export default function HowTo(){
     return (
         <div className="flex bg-black align-middle h-dvh justify-center self-center items-center">
             <span className="w-100 items-center text-wrap text-center">
