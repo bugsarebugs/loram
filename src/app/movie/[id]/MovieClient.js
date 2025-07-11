@@ -38,11 +38,11 @@ const [copied, setCopied] = useState(null);
             return (
               <li
                 key={index}
-                className={`p-10 m-5 text-white ${
+                className={`p-10 m-5 flex text-white ${
                   showRightBorder ? 'border-r-2 border-blue-500' : ''
                 }`}
               >
-                <div>
+                <div >
                   <h1 className="uppercase text-2xl font-bold">{torrent.type}</h1>
                   <p>{torrent.quality}</p>
                   <p className="mb-5">{torrent.size}</p>

@@ -19,7 +19,7 @@ export default function Modal({ onClose, children }) {
       >
         <button
           onClick={onClose}
-          className="absolute top-2 right-3 text-2xl text-gray-500 dark:text-white hover:text-gray-800"
+          className="absolute top-3 right-10 text-2xl text-gray-500 dark:text-white hover:text-blue-500"
         >
           ×
         </button>
