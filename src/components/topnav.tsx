@@ -31,7 +31,7 @@ export default function TopNav() {
   return (
     <nav className="flex flex-row justify-center bg-white dark:bg-blue-950 items-center gap-4 p-4">
       <div>
-        <Link href="/"><Image src="/LOGO.png" width={150} height={50} className="hover:w-40 hover:h-20" alt="logo"/></Link>
+        <Link href="/"><Image src="/LOGO.png" width={150} height={50}  className="hover:w-40 hover:h-20" alt="logo"/></Link>
       </div>
                 
     <div className="relative">
