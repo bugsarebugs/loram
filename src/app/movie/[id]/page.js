@@ -10,6 +10,7 @@ export default async function MovieDetail({ params }) {
     `https://yts.mx/api/v2/movie_details.json?movie_id=${id}`
   );
   const movie = res.data.data.movie;
+  const imageUrl = movie.large_cover_image || movie.background_image_original || movie.background_image || movie.medium_cover_image || movie.small_cover_image || null;
 
 
   return (
@@ -21,7 +22,7 @@ export default async function MovieDetail({ params }) {
       <h1 className="text-3xl font-bold mt-4 mb-2">{movie.title}</h1>
 
       <Image
-        src={movie.large_cover_image}
+        src={imageUrl}
         alt={movie.title}
         width={400}
         height={600}
