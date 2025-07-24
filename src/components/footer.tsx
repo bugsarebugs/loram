@@ -1,4 +1,4 @@
-import { FaWhatsappSquare, FaInstagramSquare, FaDonate } from "react-icons/fa";
+import { FaInstagramSquare} from "react-icons/fa";
 import Link from "next/link";
 
 export default function Footer(){
