@@ -27,7 +27,6 @@ export default function HowTo(){
                     <p>Just use free Downloader manager. - <Link href="https://files2.freedownloadmanager.org/6/latest/fdm_x64_setup.exe" className="text-2xl text-blue-400">FDM in Windows</Link>  </p>
                 </span>
                 <h1>Hope it helps ..... Welcome again buddies</h1> 
-                <span className="text-red-400 text-center text-2xl"> Donate hata buku wanetu</span>
             </span>
         </div>
     )
