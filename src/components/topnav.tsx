@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import {  useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import Link from "next/link";
@@ -70,7 +70,7 @@ export default function TopNav() {
         {movies.length > 0 && (
           <div className="absolute top-12 z-10 bg-black w-full rounded-md shadow-lg max-h-80 overflow-y-auto">
             <div className="flex flex-col p-2">
-              {movies.map((movie: any) => (
+              {movies.map((movie) => (
                 <Link
                   href={`/movie/${movie.id}`}
                   key={movie.id}
