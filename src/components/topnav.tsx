@@ -7,6 +7,18 @@ import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
 
+
+type Movie = {
+  id: number;
+  title: string;
+  year: number;
+  rating: number;
+  genres?: string[];
+  medium_cover_image: string;
+  // Add more if needed...
+};
+
+
 export default function TopNav() {
   const searchParams = useSearchParams();
   const [query, setQuery] = useState(searchParams.get('query') || '');
@@ -70,12 +82,13 @@ export default function TopNav() {
         {movies.length > 0 && (
           <div className="absolute top-12 z-10 bg-black w-full rounded-md shadow-lg max-h-80 overflow-y-auto">
             <div className="flex flex-col p-2">
-              {movies.map((movie) => (
+              {movies.map((movie : Movie) => (
+                movie?.id?(
                 <Link
                   href={`/movie/${movie.id}`}
                   key={movie.id}
-                  className="flex items-center gap-2 hover:bg-gray-800 p-2 rounded"
                 >
+                  <div className="flex items-center gap-2 hover:bg-gray-800 p-2 rounded">
                   <Image
                     src={movie.medium_cover_image}
                     width={40}
@@ -87,7 +100,9 @@ export default function TopNav() {
                     <h3 className="text-sm font-bold text-white">{movie.title}</h3>
                     <p className="text-xs text-gray-400">{movie.year}</p>
                   </div>
+                  </div>
                 </Link>
+                ) : null
               ))}
             </div>
           </div>

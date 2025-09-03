@@ -3,12 +3,16 @@ import axios from "axios";
 import Link from "next/link";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
+import { Suspense } from "react";
+import MovieSkeletonGrid from "@/components/MovieSkeletonGrid";
+
 
 export const dynamic = "force-dynamic";
 
-export default async function HomePage({ searchParams }) {
+export default async function HomePage(props) {
+  const searchParams = await props.searchParams;
   const query = searchParams?.query || "";
-  const page = parseInt(searchParams?.page || "1");
+  const page =  Number(searchParams?.page) || 1;
 
   let movies = [];
   let totalPages = 1;
@@ -27,6 +31,7 @@ export default async function HomePage({ searchParams }) {
   }
 
   return (
+    <Suspense fallback={<MovieSkeletonGrid />}>
     <div className="p-6 lg:px-100 sm:px-20 md:px-50 px-10">
       {movies.length > 0 ? (
         <>
@@ -92,5 +97,6 @@ export default async function HomePage({ searchParams }) {
         <p>No movies found for “{query}”.</p>
       )}
     </div>
+    </Suspense>
   );
 }
