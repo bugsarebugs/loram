@@ -21,6 +21,7 @@ type Movie = {
 
 export default function TopNav() {
   const searchParams = useSearchParams();
+  const [seenavs, setnavs] = useState(false);
   const [query, setQuery] = useState(searchParams.get('query') || '');
   const [typingTimeout, setTypingTimeout] = useState<NodeJS.Timeout | null>(null);
   const [movies, setMovies] = useState([]);
@@ -49,6 +50,7 @@ export default function TopNav() {
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setQuery(value);
+    setnavs(true);  // Show the dropdown
 
     if (typingTimeout) clearTimeout(typingTimeout);
 
@@ -79,14 +81,15 @@ export default function TopNav() {
         />
         <span className="absolute left-3 top-3 text-gray-500"><FaSearch /></span>
 
-        {movies.length > 0 && (
-          <div className="absolute top-12 z-10 bg-black w-full rounded-md shadow-lg max-h-80 overflow-y-auto">
+        {movies.length > 0 && seenavs && (
+          <div className="absolute top-12 z-10 bg-[rgba(0,0,0,0.7)] w-full rounded-md shadow-lg max-h-80 overflow-y-auto">
             <div className="flex flex-col p-2">
               {movies.map((movie : Movie) => (
                 movie?.id?(
                 <Link
                   href={`/movie/${movie.id}`}
                   key={movie.id}
+                  onClick={() => setnavs(false)}
                 >
                   <div className="flex items-center gap-2 hover:bg-gray-800 p-2 rounded">
                   <Image
