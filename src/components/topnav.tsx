@@ -8,7 +8,6 @@ import Image from "next/image";
 import axios from "axios";
 
 export default function TopNav() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const [query, setQuery] = useState(searchParams.get('query') || '');
   const [typingTimeout, setTypingTimeout] = useState<NodeJS.Timeout | null>(null);
